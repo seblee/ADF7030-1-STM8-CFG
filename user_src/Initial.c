@@ -433,10 +433,10 @@ void RF_BRE_Check(void)
         ADF7030_RECEIVING_FROM_POWEROFF();
     }
 
-    if (X_COUNT >= 1000)
+    if (X_COUNT >= X_COUNT_max)
     {
         errTemp = X_ERR;
-        if (X_ERR >= 50)
+        if (X_ERR >= X_ERR_max)
         {
             YellowStutue = LEDOFFFLAG;
         }
