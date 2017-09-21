@@ -252,7 +252,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 140 104 212 46 134 162 105 37 98 191</file>
+          <file> 140 104 59 46 134 162 212 105 37 98 191</file>
         </tool>
       </inputs>
     </file>
@@ -279,7 +279,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 140 162 104 191 95 46 134 139 211 212 105 37 98</file>
+          <file> 212 59 140 162 104 191 95 46 134 139 211 105 37 98</file>
         </tool>
       </inputs>
     </file>
@@ -306,7 +306,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 105 92 140 50 69 126 97 212 104 59 53 160 162 191 42 89 46 139 211 198 65 68 98 37</file>
+          <file> 105 92 59 140 50 69 126 97 212 104 53 160 162 42 89 46 139 211 198 65 68 191 98 37</file>
         </tool>
       </inputs>
     </file>
@@ -333,7 +333,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 139 191 211 98 46 104 95 162 37 105 59 212</file>
+          <file> 139 37 191 211 46 104 95 162 98 105 59 212</file>
         </tool>
       </inputs>
     </file>
@@ -666,7 +666,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 59 191 139 104 46 211 162 212 105 37 98</file>
+          <file> 212 139 104 46 211 162 59 191 105 37 98</file>
         </tool>
       </inputs>
     </file>
@@ -1202,7 +1202,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 162 105 104 191 139 59 212 126 98</file>
+          <file> 162 105 212 139 59 104 191 126 98</file>
         </tool>
       </inputs>
     </file>
@@ -1275,7 +1275,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 104 212 46 162 59 105 37 98 191</file>
+          <file> 104 59 46 162 212 105 37 98 191</file>
         </tool>
       </inputs>
     </file>
@@ -1302,7 +1302,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 42 139 162 59 68 92 191 95 37 97 46 134 211 55 98 104 50 198 105 140 212 65 160 69</file>
+          <file> 98 42 139 162 68 92 191 95 97 46 134 37 211 55 59 104 50 198 105 140 212 65 160 69</file>
         </tool>
       </inputs>
     </file>
