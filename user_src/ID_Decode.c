@@ -193,9 +193,9 @@ void ID_Decode_function(void)
 **/
 void DataReceive(void)
 {
-    static u8 X_HIS = 0;
-    static u8 StateCache = 0;
-    static u8 Cache = 0;
+    static u16 X_HIS = 0;
+    static u16 StateCache = 0;
+    static u16 Cache = 0;
 
     switch (StateCache)
     {
@@ -218,7 +218,7 @@ void DataReceive(void)
             X_ERR++;
         X_COUNT++;
         X_HIS ^= 1;
-        if (X_COUNT >= 1000)
+        if (X_COUNT >= X_COUNT_max)
             StateCache = 2;
     }
     break;
