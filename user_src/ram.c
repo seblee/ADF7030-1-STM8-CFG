@@ -32,7 +32,7 @@ u16 LCDRSSI = 0;
 u8 RAM_RSSI_AVG = 0;
 
 const u8 ADF7030Cfg[] = {
-#include "Settings_ADF7030-2400.cfg"
+#include "Settings_ADF7030-4800.cfg"
 };
 /**
 ****************************************************************************
