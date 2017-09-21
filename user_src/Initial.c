@@ -451,8 +451,8 @@ void RF_BRE_Check(void)
             CacheData[i++] = ((errTemp % 10) + 48);
             errTemp /= 10;
         } while (errTemp > 0);
-        for (j = 0; j < 5; j++)
-            display_map_xy(70 + j * 6, 45, 5, 8, char_Small + (CacheData[4 - j] - ' ') * 5);
+        for (j = 0; j < 4; j++)
+            display_map_xy(70 + j * 6, 45, 5, 8, char_Small + (CacheData[3 - j] - ' ') * 5);
         //        display_map_58_6(70,45,4,CacheData);
         X_ERR = 0;
         X_COUNT = 0;
