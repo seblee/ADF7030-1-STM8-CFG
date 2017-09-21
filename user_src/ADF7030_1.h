@@ -117,7 +117,7 @@ extern u16 Head_0x5515_or_0x5456;
 
 extern UINT32 DATA_Packet_ID;
 extern UINT8 DATA_Packet_Control;
-extern UINT8 DATA_Packet_Contro_buf; //2015.3.24����
+extern UINT8 DATA_Packet_Contro_buf; //2015.3.24ï¿½ï¿½ï¿½ï¿½
 
 void DELAY_30U(void);
 
@@ -140,4 +140,5 @@ u8 Memory_Read_Block_Pointer_Short_Address(ADI_ADF7030_1_RADIO_SPI_PNTR_TYPE PNT
 u8 Memory_Read_Block_Pointer_Long_Address(ADI_ADF7030_1_RADIO_SPI_PNTR_TYPE PNTR_ID, u8 num);
 u8 Memory_Write_Block_Pointer_Short_Address(const u8 *x_data, ADI_ADF7030_1_RADIO_SPI_PNTR_TYPE PNTR_ID, u8 num);
 
+void ADF7030_Clear_IRQ(void);
 #endif

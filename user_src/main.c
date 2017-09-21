@@ -20,13 +20,13 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include <iostm8l151g4.h> // CPU型号
+#include <iostm8l151g4.h> // CPU鍨嬪彿
 //#include "stm8l15x.h"
-#include "Pin_define.h" // 管脚定义
-#include "initial.h"    // 初始????? 预定?????#include "ram.h"		// RAM定义
+#include "Pin_define.h" // 绠¤剼瀹氫箟
+#include "initial.h"    // 鍒濆????? 棰勫畾?????#include "ram.h"		// RAM瀹氫箟
 #include "eeprom.h"
 #include "ADF7030_1.h"
-#include "Timer.h" // 定时?????#include "eeprom.h"		// eeprom
+#include "Timer.h" // 瀹氭椂?????#include "eeprom.h"		// eeprom
 #include "uart.h"  // uart
 #include "lcd.h"   // lcd
 #include "stdlib.h"
@@ -56,8 +56,8 @@ u16 KEY_COUNT = 0;
 void main(void)
 {
     u8 Key_Value;
-    _DI();       // 关全局中断
-    RAM_clean(); // 清除RAM
+    _DI();       // 鍏冲叏灞�涓柇
+    RAM_clean(); // 娓呴櫎RAM
     VHF_GPIO_INIT();
     SysClock_Init();
     InitialFlashReg();
@@ -65,7 +65,7 @@ void main(void)
     EXIT_init();
     TIM4_Init();
     UART1_INIT(); // UART1 for PC Software
-    _EI();        // 允许中断
+    _EI();        // 鍏佽涓柇
     WDT_init();
     lcd_init();
     ClearWDT(); // Service the WDT
@@ -74,7 +74,7 @@ void main(void)
     srand((unsigned)time(NULL));
     TX_DataLoad(10010101, OpenMode, &CONST_TXPACKET_DATA_20000AF0[0]);
     BEEP_and_LED();
-    while (WORK_TEST == 0) //测试模式
+    while (WORK_TEST == 0) //娴嬭瘯妯″紡
     {
         ClearWDT(); // Service the WDT
         LCDTestDisplay();

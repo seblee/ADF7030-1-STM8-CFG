@@ -4,47 +4,47 @@
 /*  DESCRIPTION :routine for VHF60-2011                                */
 /*  CPU TYPE    :STM8S207C8                                            */
 /*  Programmer	:Gong Dong Sheng                                       */
-/*  Mark        :STM8S207C8��CODE�ռ�Ϊ64K                             */
-/*              :STM8S207C8��EEPROM�Ĵ�СΪ1536�ֽ�,��:3ҳ,512��/ҳ    */
+/*  Mark        :STM8S207C8ďż˝ďż˝CODEďż˝Őźďż˝ÎŞ64K                             */
+/*              :STM8S207C8ďż˝ďż˝EEPROMďż˝Ä´ďż˝ĐĄÎŞ1536ďż˝Ö˝ďż˝,ďż˝ďż˝:3Ňł,512ďż˝ďż˝/Ňł    */
 /***********************************************************************/
-#include <iostm8l151g4.h> // CPU�ͺ�
+#include <iostm8l151g4.h> // CPUďż˝Íşďż˝
 //#include "stm8l15x.h"
-#include "Pin_define.h" // �ܽŶ���
-//#include "initial.h"		// ��ʼ��  Ԥ����
-#include "ram.h"    // RAM����
+#include "Pin_define.h" // ďż˝Ü˝Ĺśďż˝ďż˝ďż˝
+//#include "initial.h"		// ďż˝ďż˝Ęźďż˝ďż˝  Ô¤ďż˝ďż˝ďż˝ďż˝
+#include "ram.h"    // RAMďż˝ďż˝ďż˝ďż˝
 #include "eeprom.h" // eeprom
 #include "ID_Decode.h"
 /***********************************************************************/
-/*                    FLASH & EEPROM �Ĵ���������λ                    */
+/*                    FLASH & EEPROM ďż˝Ä´ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝Îť                    */
 /***********************************************************************/
 #define FIRST_SECURITY_KEY 0xAE
 #define SECOND_SECURITY_KEY 0x56
 #define ADD_EEPROM_S8 0x1000
 
 ///* FLASH_CR2 */
-//#define OPT               7   /* ��ѡ���ֽڽ���д���� */
-//#define WPRG              6   /* �ֱ��� */
-//#define ERASE             5   /* ������ */
-//#define FPRG              4   /* ���ٿ����� */
+//#define OPT               7   /* ďż˝ďż˝ŃĄďż˝ďż˝ďż˝Ö˝Ú˝ďż˝ďż˝ďż˝Đ´ďż˝ďż˝ďż˝ďż˝ */
+//#define WPRG              6   /* ďż˝Öąďż˝ďż˝ďż˝ */
+//#define ERASE             5   /* ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ */
+//#define FPRG              4   /* ďż˝ďż˝ďż˝Ůżďż˝ďż˝ďż˝ďż˝ďż˝ */
 ////#define NC              3
 ////#define NC              2
 ////#define NC              1
-//#define PRG               0   /* ��׼������ */
+//#define PRG               0   /* ďż˝ďż˝×źďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ */
 //
 ///* FLASH_NCR2 */
-//#define NOPT              7   /* ��ѡ���ֽڽ���д���� */
-//#define NWPRG             6   /* �ֱ��� */
-//#define NERASE            5   /* ������ */
-//#define NFPRG             4   /* ���ٿ����� */
+//#define NOPT              7   /* ďż˝ďż˝ŃĄďż˝ďż˝ďż˝Ö˝Ú˝ďż˝ďż˝ďż˝Đ´ďż˝ďż˝ďż˝ďż˝ */
+//#define NWPRG             6   /* ďż˝Öąďż˝ďż˝ďż˝ */
+//#define NERASE            5   /* ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ */
+//#define NFPRG             4   /* ďż˝ďż˝ďż˝Ůżďż˝ďż˝ďż˝ďż˝ďż˝ */
 ////#define NC              3
 ////#define NC              2
 ////#define NC              1
-//#define NPRG              0   /* ��׼������ */
+//#define NPRG              0   /* ďż˝ďż˝×źďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ */
 //
 ///* FLASH_FPR */
 ////#define NC              7
 ////#define NC              6
-//#define WPB5              5   /* �û��������뱣��λ */
+//#define WPB5              5   /* ďż˝Ăťďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ëąŁďż˝ďż˝Îť */
 //#define WPB4              4
 //#define WPB3              3
 //#define WPB2              2
@@ -54,7 +54,7 @@
 ///* FLASH_NFPR */
 ////#define NC              7
 ////#define NC              6
-//#define NWPB5             5   /* �û��������뱣��λ */
+//#define NWPB5             5   /* ďż˝Ăťďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ëąŁďż˝ďż˝Îť */
 //#define NWPB4             4
 //#define NWPB3             3
 //#define NWPB2             2
@@ -62,7 +62,7 @@
 //#define NWPB0             0
 //
 ///* FLASH_PUKR */
-//#define MASS_PRG_KEY7     7   /* �������洢��������Կ */
+//#define MASS_PRG_KEY7     7   /* ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ć´˘ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝ďż˝Ôż */
 //#define MASS_PRG_KEY6     6
 //#define MASS_PRG_KEY5     5
 //#define MASS_PRG_KEY4     4
@@ -72,7 +72,7 @@
 //#define MASS_PRG_KEY0     0
 //
 ///* FLASH_DUKR */
-//#define MASS_DATA_KEY7    7   /* DATA EEPROM������Կ */
+//#define MASS_DATA_KEY7    7   /* DATA EEPROMďż˝ďż˝ďż˝ďż˝ďż˝ďż˝Ôż */
 //#define MASS_DATA_KEY6    6
 //#define MASS_DATA_KEY5    5
 //#define MASS_DATA_KEY4    4
@@ -83,13 +83,13 @@
 //
 /* FLASH_IAPSR */
 //#define NC              7
-#define HVOFF 6 /* 高压结束标志 */
+#define HVOFF 6 /* éŤĺçťćć ĺż */
 //#define NC              5
 //#define NC              4
-#define DUL 3       /* DATA EEPROM区域解锁标志 */
-#define EOP 2       /* 编程结束(写或擦除操作)标志 */
-#define PUL 1       /* �?速程序存储器结束标志 */
-#define WR_PG_DIS 0 /* 试图向�??保护页进行写操作的标�? */
+#define DUL 3       /* DATA EEPROMĺşĺč§Łéć ĺż */
+#define EOP 2       /* çźç¨çťć(ĺććŚé¤ćä˝)ć ĺż */
+#define PUL 1       /* ĺż?éç¨ĺşĺ­ĺ¨ĺ¨çťćć ĺż */
+#define WR_PG_DIS 0 /* čŻĺžĺč??äżć¤éĄľčżčĄĺćä˝çć ĺż? */
 
 #define FLASH_CR1_RESET_VALUE ((uchar)0x00)
 #define FLASH_CR2_RESET_VALUE ((uchar)0x00)
@@ -106,31 +106,31 @@
 
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 void InitialFlashReg(void)
-{ // 初�?�化�?存寄存器�?
+{ // ĺĺ?ĺé?ĺ­ĺŻĺ­ĺ¨çť?
     FLASH_CR1 = FLASH_CR1_RESET_VALUE;
     FLASH_CR2 = FLASH_CR2_RESET_VALUE;
     //FLASH_NCR2 = FLASH_NCR2_RESET_VALUE;
-    FLASH_IAPSR &= (uchar)(~(1 << DUL)); // 清除�?读DATA区解�?
-    FLASH_IAPSR &= (uchar)(~(1 << PUL)); // 清除程序区解�?
+    FLASH_IAPSR &= (uchar)(~(1 << DUL)); // ć¸é¤ĺ?čŻťDATAĺşč§Łé?
+    FLASH_IAPSR &= (uchar)(~(1 << PUL)); // ć¸é¤ç¨ĺşĺşč§Łé?
 }
 //------------------------------------------------
-//  �?: 2�?密钥的操作序列�?�好相反
+//  ćł?: 2ä¸?ĺŻéĽçćä˝ĺşĺć?ŁĺĽ˝ç¸ĺ
 void UnlockFlash(unsigned char Type)
-{ // 解锁flash
+{ // č§Łéflash
     if (Type == UNLOCK_FLASH_TYPE)
-    { // 解锁程序�?
+    { // č§Łéç¨ĺşĺ?
         FLASH_DUKR = SECOND_SECURITY_KEY;
         FLASH_DUKR = FIRST_SECURITY_KEY;
     }
     else
-    { // 解锁eeprom
+    { // č§Łéeeprom
         FLASH_DUKR = FIRST_SECURITY_KEY;
         FLASH_DUKR = SECOND_SECURITY_KEY;
     }
 }
 //------------------------------------------------
 void LockFlash(unsigned char Type)
-{ // 锁定存储�?
+{ // éĺŽĺ­ĺ¨ĺ?
     if (Type == UNLOCK_FLASH_TYPE)
     {
         FLASH_IAPSR &= ~(1 << PUL);
@@ -142,17 +142,17 @@ void LockFlash(unsigned char Type)
 }
 //------------------------------------------------
 uchar ReadByteEEPROM(ulong Addr)
-{                                    // 从eeprom�?读取1字节
+{                                    // äťeepromä¸?čŻťĺ1ĺ­č
     return (*((__far uchar *)Addr)); // Read byte
 }
 //------------------------------------------------
 void WriteByteToFLASH(ulong Addr, uchar Dat)
-{ // 写入一字节到eeprom
+{ // ĺĺĽä¸ĺ­čĺ°eeprom
     *((__far uchar *)Addr) = Dat;
 }
 //------------------------------------------------
 void EraseByteFLASH(uint Addr)
-{ // 擦除eeprom�?内�??
+{ // ćŚé¤eepromä¸?ĺĺ??
     *((__near uchar *)Addr) = 0x00;
 }
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

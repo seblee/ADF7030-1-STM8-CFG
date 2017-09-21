@@ -8,7 +8,7 @@
 /*  CPU TYPE    :STM8L151G6     Crystal: 16M HSI                       */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-/***********************ÏµÍ³Ô¤¶¨Òå**********************/
+/***********************ç³»ç»Ÿé¢„å®šä¹‰**********************/
 #define UINT8 unsigned char
 #define INT8 char
 #define UINT16 unsigned int
@@ -24,10 +24,10 @@
 #define _EI() asm(" rim ")
 #define _DI() asm(" sim ")
 
-// ·½Ïò¿ØÖÆ¼Ä´æÆ÷1£¨1=Êä³ö£¯0=ÊäÈë£©
+// æ–¹å‘æ§åˆ¶å¯„å­˜å™¨1ï¼ˆ1=è¾“å‡ºï¼0=è¾“å…¥ï¼‰
 #define Input 0
 #define Output 1
-/*******************ÏµÍ³Ô¤¶¨Òå  end**********************/
+/*******************ç³»ç»Ÿé¢„å®šä¹‰  end**********************/
 
 typedef union {
   UINT32 whole_reg;
@@ -41,7 +41,7 @@ typedef union { // ID No.
 } uni_rom_id;
 
 extern u16 X_COUNT;
-extern u16 X_ERR; //¼ÇÂ¼´íÎóµÄ¸öÊı
+extern u16 X_ERR; //è®°å½•é”™è¯¯çš„ä¸ªæ•°
 
 extern uFLAG YellowLedFlag, RedLedFalg;
 #define YellowStutue YellowLedFlag.BYTE
@@ -51,15 +51,15 @@ extern uFLAG YellowLedFlag, RedLedFalg;
 #define LEDFLASHASECONDFLAG 2
 #define LEDFLASHFLAG 3
 
-void LED_GPIO_Init(void);      //³õÊ¼»¯LED
-void LCD_GPIO_Init(void);      //³õÊ¼»¯LCD IO
+void LED_GPIO_Init(void);      //åˆå§‹åŒ–LED
+void LCD_GPIO_Init(void);      //åˆå§‹åŒ–LCD IO
 void KEY_GPIO_Init(void);      //KEY IO
 void CG2214M6_GPIO_Init(void); //CG2214M6 IO
 void ADF7030_GPIO_INIT(void);  //ADF7030 IO(REST & GPIO3)
-u8 KEY_SCAN(u8 mode);          //°´¼üÉ¨Ãè
-void RAM_clean(void);          // Çå³ıRAM
-void VHF_GPIO_INIT(void);      // CPU¶Ë¿ÚÉèÖÃ
-void SysClock_Init(void);      // ÏµÍ³Ê±ÖÓ£¨Íâ²¿Ê±ÖÓ£©
+u8 KEY_SCAN(u8 mode);          //æŒ‰é”®æ‰«æ
+void RAM_clean(void);          // æ¸…é™¤RAM
+void VHF_GPIO_INIT(void);      // CPUç«¯å£è®¾ç½®
+void SysClock_Init(void);      // ç³»ç»Ÿæ—¶é’Ÿï¼ˆå¤–éƒ¨æ—¶é’Ÿï¼‰
 void beep_init(void);
 void Delayus(unsigned char timer);
 void WDT_init(void);

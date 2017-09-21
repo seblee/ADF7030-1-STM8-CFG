@@ -14,13 +14,13 @@
 #include "ADF7030_1.h"
 
 /**************************************************************************
- * º¯ÊýÃû£ºSPI_conf
- * ÃèÊö  £ºSPIÄ£¿éÅäÖÃº¯Êý
- * ÊäÈë  £ºÎÞ
+ * å‡½æ•°åï¼šSPI_conf
+ * æè¿°  ï¼šSPIæ¨¡å—é…ç½®å‡½æ•°
+ * è¾“å…¥  ï¼šæ— 
  *
- * Êä³ö  £ºÎÞ
- * ·µ»Ø  £ºÎÞ
- * µ÷ÓÃ  £ºÍâ²¿µ÷ÓÃ
+ * è¾“å‡º  ï¼šæ— 
+ * è¿”å›ž  ï¼šæ— 
+ * è°ƒç”¨  ï¼šå¤–éƒ¨è°ƒç”¨
  *************************************************************************/
 void SPI_conf()
 {
@@ -34,12 +34,12 @@ void SPI_conf()
     PB_CR1 |= 1 << 7;    //in put with pull-up
 
     CLK_PCKENR1 |= 0x10;
-    SPI1_CR1_SPE = 0;      //½ûÖ¹SPI1
-    SPI1_CR1_LSBFIRST = 0; //ÏÈ·¢ËÍMSB
+    SPI1_CR1_SPE = 0;      //ç¦æ­¢SPI1
+    SPI1_CR1_LSBFIRST = 0; //å…ˆå‘é€MSB
     SPI1_CR1_BR = 0;       //fSYSCLK/2 = 8MHz   Baud = fSYSCLK/(2^(SPI1_CR1_BR+1)) eg.	//000: fSYSCLK/2  001: fSYSCLK/4
-    SPI1_CR1_MSTR = 1;     //Master configuration ÉèÖÃÎªÖ÷Ä£Ê½
-    SPI1_CR1_CPOL = 0;     //0: SCK to 1 when idle		¿ÕÏÐ×´Ì¬Ê±SCKÎªµÍµçÆ½									(MISOºÍMOSIÔÚCLKµÄÉÏÉýÑØÔØÈë£¬ÏÂ½µÑØÈ¡Ñù)
-    SPI1_CR1_CPHA = 0;     //0: The first clock transition is the second data capture edge (MISOºÍMOSIÔÚCLKµÄÉÏÉýÑØÔØÈë£¬ÏÂ½µÑØÈ¡Ñù)
+    SPI1_CR1_MSTR = 1;     //Master configuration è®¾ç½®ä¸ºä¸»æ¨¡å¼
+    SPI1_CR1_CPOL = 0;     //0: SCK to 1 when idle		ç©ºé—²çŠ¶æ€æ—¶SCKä¸ºä½Žç”µå¹³									(MISOå’ŒMOSIåœ¨CLKçš„ä¸Šå‡æ²¿è½½å…¥ï¼Œä¸‹é™æ²¿å–æ ·)
+    SPI1_CR1_CPHA = 0;     //0: The first clock transition is the second data capture edge (MISOå’ŒMOSIåœ¨CLKçš„ä¸Šå‡æ²¿è½½å…¥ï¼Œä¸‹é™æ²¿å–æ ·)
 
     SPI1_CR2_BDM = 0;    //2-line unidirectional data mode selected
                          //	SPI1_CR2_BDOE			= 0;
@@ -56,7 +56,7 @@ void SPI_conf()
     SPI1_ICR_TXDMAEN = 0; //Tx buffer DMA disabled
     SPI1_ICR_RXDMAEN = 0; //Rx buffer DMA disabled
 
-    SPI1_CR1_SPE = 1; //Ê¹ÄÜSPI1
+    SPI1_CR1_SPE = 1; //ä½¿èƒ½SPI1
 
     //    CLK_PCKENR1 |= 0x10;
     //    SPI1_CR1 = 0x04;
@@ -64,30 +64,30 @@ void SPI_conf()
     //    SPI1_CRCPR = 0x07;
     //    SPI1_CR1 |= 0x40;
 
-    SPI_CS_DDR = Output; /* ÉèÖÃÊý¾Ý·½Ïò¼Ä´æÆ÷ 1ÎªÊä³ö£¬0ÎªÊäÈë--²é¿´STM8¼Ä´æÆ÷.pdf P87 */
-    SPI_CS_CR1 = 1;      /* ÉèÖÃÍÆÍìÊä³ö--²é¿´STM8¼Ä´æÆ÷RM0031.pdf 10.9*/
-    SPI_CS_CR2 = 1;      /* ÉèÖÃÊä³öÆµÂÊ 1Îª10M£¬0Îª2M--²é¿´STM8¼Ä´æÆ÷.pdf P89 */
+    SPI_CS_DDR = Output; /* è®¾ç½®æ•°æ®æ–¹å‘å¯„å­˜å™¨ 1ä¸ºè¾“å‡ºï¼Œ0ä¸ºè¾“å…¥--æŸ¥çœ‹STM8å¯„å­˜å™¨.pdf P87 */
+    SPI_CS_CR1 = 1;      /* è®¾ç½®æŽ¨æŒ½è¾“å‡º--æŸ¥çœ‹STM8å¯„å­˜å™¨RM0031.pdf 10.9*/
+    SPI_CS_CR2 = 1;      /* è®¾ç½®è¾“å‡ºé¢‘çŽ‡ 1ä¸º10Mï¼Œ0ä¸º2M--æŸ¥çœ‹STM8å¯„å­˜å™¨.pdf P89 */
 }
 
 /**************************************************************************
- * º¯ÊýÃû£ºSPI_SendByte
- * ÃèÊö  £ºSPIÄ£¿é·¢ËÍº¯Êý
- * ÊäÈë  £ºÎÞ
+ * å‡½æ•°åï¼šSPI_SendByte
+ * æè¿°  ï¼šSPIæ¨¡å—å‘é€å‡½æ•°
+ * è¾“å…¥  ï¼šæ— 
  *
- * Êä³ö  £ºÎÞ
- * ·µ»Ø  £ºÎÞ
- * µ÷ÓÃ  £ºÍâ²¿µ÷ÓÃ
+ * è¾“å‡º  ï¼šæ— 
+ * è¿”å›ž  ï¼šæ— 
+ * è°ƒç”¨  ï¼šå¤–éƒ¨è°ƒç”¨
  *************************************************************************/
 unsigned char SPI_SendByte(unsigned char byte)
 {
     u8 dat;
     dat = SPI1_DR;
     while (!(SPI1_SR & 0x02))
-        ;           /* µÈ´ý·¢ËÍ¼Ä´æÆ÷Îª¿Õ */
-    SPI1_DR = byte; /* ½«·¢ËÍµÄÊý¾ÝÐ´µ½Êý¾Ý¼Ä´æÆ÷ */
+        ;           /* ç­‰å¾…å‘é€å¯„å­˜å™¨ä¸ºç©º */
+    SPI1_DR = byte; /* å°†å‘é€çš„æ•°æ®å†™åˆ°æ•°æ®å¯„å­˜å™¨ */
     __asm("nop");
     while (!(SPI1_SR & 0x01))
-        ; /* µÈ´ý½ÓÊÜ¼Ä´æÆ÷Âú */
+        ; /* ç­‰å¾…æŽ¥å—å¯„å­˜å™¨æ»¡ */
     dat = SPI1_DR;
     return dat;
 }
@@ -98,7 +98,7 @@ unsigned char SPI_SendByte(unsigned char byte)
 * @Author	: Xiaowine
 * @date		: 2017/4/11
 * @version	: V1.0
-* @brief	: µÈ´ýSPI¿ÕÏÐ
+* @brief	: ç­‰å¾…SPIç©ºé—²
 **/
 void WAIT_SPI_IDEL(void)
 {
@@ -134,7 +134,7 @@ void SPI_SendString(u16 Length, const u8 *TX_Cache, u8 *RX_Cache)
 ****************************************************************************
 * @Function : u8 SPISendADF7030CFG(u8 *RF_CONFIG,u16 SIZE)
 * @File     : spi.c
-* @Program  : *RF_CONFIG:cfgÊý¾Ý;length: Êý¾Ý³¤¶È
+* @Program  : *RF_CONFIG:cfgæ•°æ®;length: æ•°æ®é•¿åº¦
 * @Created  : 2017/4/21 by Xiaowine
 * @Brief    :
 * @Version  : V1.0
@@ -154,7 +154,7 @@ u8 SPISendADF7030CFG(u8 *RF_CONFIG, u32 SIZE)
             return FAILURE;
         pSeqData = (RF_CONFIG + array_position + 3);
 
-        WaitForADF7030_FIXED_DATA(); //µÈ´ýÐ¾Æ¬¿ÕÏÐ/¿É½ÓÊÜCMD×´Ì¬
+        WaitForADF7030_FIXED_DATA(); //ç­‰å¾…èŠ¯ç‰‡ç©ºé—²/å¯æŽ¥å—CMDçŠ¶æ€
         DELAY_30U();
         SPI_SendString(length - 3, pSeqData, SPI_RECEIVE_BUFF);
         array_position += length;

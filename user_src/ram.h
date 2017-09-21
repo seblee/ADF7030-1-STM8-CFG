@@ -3,7 +3,7 @@
 //CPU?????
 //?????ADF030???????
 //#define TX_TEST_CARRIER_MODE 0
-#include "initial.h" // ³õÊ¼»¯  Ô¤¶¨Òå
+#include "initial.h" // åˆå§‹åŒ–  é¢„å®šä¹‰
 
 extern uFLAG FLAG_test1;
 //************************************************
@@ -11,7 +11,7 @@ extern uFLAG FLAG_test1;
 //------------------------------------------------
 #define BIT_SIO FLAG_test1.BIT.Bit0
 #define FG_auto_out FLAG_test1.BIT.Bit1
-#define FG_OUT_OPEN_CLOSE FLAG_test1.BIT.Bit2 //ÀúÊ·¼ÇÂ¼   ÎóÂëÂÊ²âÊÔÓÃ
+#define FG_OUT_OPEN_CLOSE FLAG_test1.BIT.Bit2 //å†å²è®°å½•   è¯¯ç ç‡æµ‹è¯•ç”¨
                                               //    #define		FG_auto_outbz		FLAG_test1.BIT.Bit3
 #define FG_auto_open_time FLAG_test1.BIT.Bit4
 #define FG_auto_manual_mode FLAG_test1.BIT.Bit5 //1=auto,0=manual
@@ -31,7 +31,7 @@ extern UINT8 TIMER250ms_STOP;
 extern UINT16 TIME_auto_out;
 extern UINT16 TIME_auto_close;
 extern UINT16 time_3sec;
-extern UINT32 ID_Receiver_DATA[256]; //Ğ´ÈëEEPROM IDµÄÊı¾İ
+extern UINT32 ID_Receiver_DATA[256]; //å†™å…¥EEPROM IDçš„æ•°æ®
 extern UINT16 ID_DATA_PCS;
 extern u8 Count_key_SW3;
 extern u8 Display_key_SW3;

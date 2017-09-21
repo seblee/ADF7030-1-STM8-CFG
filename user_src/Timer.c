@@ -6,10 +6,10 @@
 /*  DESCRIPTION :                                                      */
 /*  Mark        :ver 1.0                                               */
 /***********************************************************************/
-#include <iostm8l151g4.h> // CPUÐÍºÅ
-#include "Pin_define.h"   // ¹Ü½Å¶¨Òå
-//#include "initial.h"		// ³õÊ¼»¯  Ô¤¶¨Òå
-#include "ram.h" // RAM¶¨Òå
+#include <iostm8l151g4.h> // CPUåž‹å·
+#include "Pin_define.h"   // ç®¡è„šå®šä¹‰
+//#include "initial.h"		// åˆå§‹åŒ–  é¢„å®šä¹‰
+#include "ram.h" // RAMå®šä¹‰
 
 u16 LedREDTimer = 1;
 u16 LedYELLOWTimer = 1;
@@ -20,15 +20,15 @@ uFLAG LedFlag;
 //%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%Timer 4 start   1ms
 void TIM4_Init(void)
 {
-    TIM4_PSCR = 0x06; // Timer 4 prescaler  ¼ÆÊýÆ÷Ê±ÖÓÆµÂÊ  f CK_CNT  =f CK_PSC  / 2µÄN´Î·½
-                      //TIM4_PSCR = 0x08;	// Timer 4 prescaler  ¼ÆÊýÆ÷Ê±ÖÓÆµÂÊ  f CK_CNT  = f CK_PSC/ 2(PSC[3:0])
+    TIM4_PSCR = 0x06; // Timer 4 prescaler  è®¡æ•°å™¨æ—¶é’Ÿé¢‘çŽ‡  f CK_CNT  =f CK_PSC  / 2çš„Næ¬¡æ–¹
+                      //TIM4_PSCR = 0x08;	// Timer 4 prescaler  è®¡æ•°å™¨æ—¶é’Ÿé¢‘çŽ‡  f CK_CNT  = f CK_PSC/ 2(PSC[3:0])
     TIM4_ARR = 0xF9;  // Timer 4 period
     TIM4_CR1 |= 0x01; // Timer 4 Enable
     TIM4_IER |= 0x01; // Timer 4 OVR interrupt
 }
 
 void TIM4_UPD_OVF(void)
-{ //725==1Ãë
+{ //725==1ç§’
 
     if ((LedREDTimer > 1) && ((RedStutue & 0x0f) != LEDONFLAG))
         LedREDTimer--;
@@ -38,5 +38,5 @@ void TIM4_UPD_OVF(void)
         ErrStateTimeer--;
     if (StateReadTimer > 0)
         StateReadTimer--;
-    TIM4_SR1_bit.UIF = 0; // Çå³ýÖÐ¶Ï±ê¼Ç
+    TIM4_SR1_bit.UIF = 0; // æ¸…é™¤ä¸­æ–­æ ‡è®°
 }
