@@ -1592,6 +1592,9 @@
   </configuration>
   <group>
     <name>STM8L15x Libraries</name>
+    <excluded>
+      <configuration>Debug</configuration>
+    </excluded>
     <file>
       <name>$PROJ_DIR$\Libraries\src\stm8l15x_adc.c</name>
     </file>
