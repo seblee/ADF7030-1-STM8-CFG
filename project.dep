@@ -227,6 +227,7 @@
       <file>$PROJ_DIR$\Debug\Exe\ADF7030 STM8L151 TEST Ver.hex</file>
       <file>$PROJ_DIR$\Debug\Obj\project.pbd</file>
       <file>$PROJ_DIR$\Libraries\inc\stm8l15x_tim3.h</file>
+      <file>$PROJ_DIR$\user_src\Settings_ADF7030-4800.cfg</file>
       <file>$PROJ_DIR$\user_src\Settings_ADF7030-2400.cfg</file>
     </outputs>
     <file>
@@ -1175,7 +1176,7 @@
         </tool>
         <tool>
           <name>BICOMP</name>
-          <file> 53 198 65 160 50 212 69 92 42 59 97 68 89 98 221</file>
+          <file> 53 198 65 160 50 212 69 92 42 59 97 68 89 98 222</file>
         </tool>
       </inputs>
     </file>
@@ -1272,10 +1273,6 @@
         <tool>
           <name>ICCSTM8</name>
           <file> 105 162 46 37 59 212 98 104 191</file>
-        </tool>
-        <tool>
-          <name>BICOMP</name>
-          <file> 104 59 46 162 212 105 37 98 191</file>
         </tool>
       </inputs>
     </file>

@@ -149,7 +149,7 @@
     }
 #define CG2214M6_VC2_USE  \
     {                     \
-        CG2214M6_VC2 = 0; \
+        CG2214M6_VC1 = 0; \
         CG2214M6_VC2 = 1; \
     }
 
