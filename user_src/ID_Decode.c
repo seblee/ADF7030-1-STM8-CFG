@@ -218,7 +218,7 @@ void DataReceive(void)
             X_ERR++;
         X_COUNT++;
         X_HIS ^= 1;
-        if (X_COUNT >= 1000)
+        if (X_COUNT >= X_COUNT_max)
             StateCache = 2;
     }
     break;
