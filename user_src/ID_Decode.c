@@ -193,9 +193,9 @@ void ID_Decode_function(void)
 **/
 void DataReceive(void)
 {
-    static u16 X_HIS = 0;
-    static u16 StateCache = 0;
-    static u16 Cache = 0;
+    static u8 X_HIS = 0;
+    static u8 StateCache = 0;
+    static u8 Cache = 0;
 
     switch (StateCache)
     {

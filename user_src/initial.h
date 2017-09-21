@@ -40,8 +40,8 @@ typedef union { // ID No.
   UINT8 IDB[4];
 } uni_rom_id;
 
-#define X_COUNT_max 1000
-#define X_ERR_max 50
+#define X_COUNT_max 2400
+#define X_ERR_max 120
 extern u16 X_COUNT;
 extern u16 X_ERR; //记录错误的个数
 
